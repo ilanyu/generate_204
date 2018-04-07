@@ -16,6 +16,9 @@ func main() {
 		switch string(ctx.Path()) {
 		case "/generate_204":
 			ctx.SetStatusCode(204)
+		case "/OK":
+			ctx.Response.Header.SetContentType("text/plain; charset=utf-8")
+			ctx.WriteString("OK")
 		default:
 			ctx.Response.Header.SetContentType("text/plain; charset=utf-8")
 			if cmd.ipHttpHeader == "NOT" {
